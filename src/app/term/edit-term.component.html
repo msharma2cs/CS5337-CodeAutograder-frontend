@@ -1,0 +1,18 @@
+<div class="container-full m-3">
+
+    <h3>Edit Term</h3>
+
+    <form [formGroup]="termForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text" formControlName="description" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.description.errors }" value={{term.description}}/>
+            <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+                <div *ngIf="f.description.errors.required">Term name is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <button [disabled]="loading" class="btn btn-success mr-2">Add</button>
+            <a [routerLink]="['/term']" class="btn btn-danger">Cancel</a>
+        </div>
+    </form>
+</div>

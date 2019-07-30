@@ -1,0 +1,20 @@
+<div class="container-full m-3">
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Question</th>
+              <th scope="col">Upload</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let assignment of assignments">
+                <td>{{assignment.id}}</td>
+                <td>{{assignment.question}}</td>
+                <td><a [routerLink]="['/submit/assignment']" [queryParams]="{id:assignment.id}" class="btn btn-sm btn-dark">View</a></td>
+            </tr>
+        </tbody>
+    </table>  
+</div>
+    
+    

@@ -1,0 +1,22 @@
+<div class="container-full m-3">
+  <h3>Assignment Grades</h3>
+
+  <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Question</th>
+                <th scope="col">Language</th>
+                <th scope="col">Code</th>
+                <th scope="col">Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let assignment of assignmentGrade">
+                <td>{{assignment.assignment.question}}</td>
+                <td>{{assignment.language}}</td>
+                <td>{{assignment.code}}</td>
+                <td>{{assignment.score}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

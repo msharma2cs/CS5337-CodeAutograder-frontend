@@ -1,0 +1,28 @@
+<div class="container-full m-3">
+    <div class="row">
+        <div class="col-sm-9">
+                <h3>Session Terms</h3>
+        </div>
+        <div class="col-sm-3 ml-auto pull-right">
+            <a *ngIf="isLoggedInAsAdmin" class="btn btn-sm btn-success" [routerLink]="['/addTerm']">Add Term</a>
+        </div>
+    </div>
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Description</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let term of terms">
+                <td>{{term.description}}</td>
+                <td><a class="btn btn-sm btn-dark" [routerLink]="['/term/edit']" [queryParams]="{id:term.id}">Edit</a></td>
+                <td><a class="btn btn-sm btn-danger" (click)="deleteUser(term.id)">Delete</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

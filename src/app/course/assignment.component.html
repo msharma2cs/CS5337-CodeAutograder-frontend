@@ -1,0 +1,38 @@
+<div class="container-full m-3">
+        <h3>Add Assignment</h3>
+        <form [formGroup]="assignmentForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="question">Question</label>
+                <input type="text" formControlName="question" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.question.errors }"/>
+                <div *ngIf="submitted && f.question.errors" class="invalid-feedback">
+                    <div *ngIf="f.question.errors.required">Cin is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="answer">Answer</label>
+                <input type="text" formControlName="answer" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.answer.errors }"/>
+                <div *ngIf="submitted && f.answer.errors" class="invalid-feedback">
+                    <div *ngIf="f.answer.errors.required">Answer is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                    <label for="post_date">Post Date</label>
+                    <input type="date" formControlName="post_date" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.post_date.errors }"/>
+                    <div *ngIf="submitted && f.post_date.errors" class="invalid-feedback">
+                        <div *ngIf="f.post_date.errors.required">Post Date is required</div>
+                    </div>
+            </div>
+            <div class="form-group">
+                    <label for="due_date">Due Date</label>
+                    <input type="date" formControlName="due_date" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.due_date.errors }"/>
+                    <div *ngIf="submitted && f.due_date.errors" class="invalid-feedback">
+                        <div *ngIf="f.due_date.errors.required">Due Date is required</div>
+                    </div>
+            </div>
+            <div class="form-group">
+                <button [disabled]="loading" class="btn btn-primary mr-3">Add</button>
+                <a [routerLink]="['/ihome']" class="btn btn-danger">Cancel</a>
+            </div>
+        </form>
+</div>
+

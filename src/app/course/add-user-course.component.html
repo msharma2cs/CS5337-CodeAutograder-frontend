@@ -1,0 +1,26 @@
+<div class="container-full m-3">
+    <h3>Add User to Course</h3>
+    <label for="">Section</label>
+    <p>{{course.section}}</p>
+    <label for="">Room</label>
+    <p>{{course.room}}</p>
+    <label for="">Start Date</label>
+    <p>{{course.class_start_date}}</p>
+    <label for="">End Date</label>
+    <p>{{course.class_end_date}}</p>
+    <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="student_id">Student</label>
+            <select formControlName="student_id" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.student_id.errors }">
+                <option *ngFor="let student of students" value={{student.id}}>{{student.name}}</option> 
+            </select>
+            <div *ngIf="submitted && f.student_id.errors" class="invalid-feedback">
+                <div *ngIf="f.student_iderrors.mustMatch">Student id is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <button [disabled]="loading" class="btn btn-primary">Add</button>
+        </div>
+    </form>
+
+</div>

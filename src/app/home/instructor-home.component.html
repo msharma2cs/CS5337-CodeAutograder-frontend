@@ -1,0 +1,35 @@
+<div class="container-full m-3">
+    <div class="row">
+        <div class="col-sm-9">
+            <h3>Welcome {{ currentUser.name }}! <small> You're logged to CAGE as {{ currentUser.type }}</small></h3>
+        </div>
+    </div>
+
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+              <!-- <th scope="col">Class</th>
+              <th scope="col">Instructor</th> -->
+              <th scope="col">Section</th>
+              <th scope="col">Room</th>
+              <th scope="col">Start Date</th>
+              <th scope="col">End Date</th>
+              <th scope="col">Student Info</th>
+              <th scope="col">Add Student</th>
+              <th scope="col">Add Assignment</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let course of courses">
+                <td>{{course.section}}</td>
+                <td>{{course.room}}</td>
+                <td>{{course.class_start_date}}</td>
+                <td>{{course.class_end_date}}</td>
+                <td><a [routerLink]="['/class/users']" [queryParams]="{cid:course.id}" class="btn btn-sm btn-dark">View</a></td>
+                <td><a [routerLink]="['/addStudent']" [queryParams]="{id:course.id}" class="btn btn-sm btn-success">Add</a></td>
+                <td><a [routerLink]="['/addAssignment']" [queryParams]="{cid:course.id}" class="btn btn-sm btn-success">Add</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

@@ -1,0 +1,42 @@
+<div class="container-full m-3">
+    <h3>Edit User</h3>
+
+    <div>
+        <label>Cin:   </label>{{user.cin}}
+    </div>
+
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="lastName">Name</label>
+            <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" value={{user.name}}/>
+            <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                <div *ngIf="f.name.errors.required">Name is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="enabled">Enabled</label>
+            <select formControlName="enabled" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.enabled.errors }">
+                <option value="true">Enabled</option>
+                <option value="false">Unabled</option>
+            </select>
+            <div *ngIf="submitted && f.enabled.errors" class="invalid-feedback">
+                <div *ngIf="f.enabled.errors.required">User Type required</div>
+                <div *ngIf="f.enabled.errors.email">Incorrect E-mail</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="type">User Type</label>
+            <select formControlName="type" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.type.errors }">
+                <option value=0>Administrator</option>
+                <option value=1>Instructor</option>
+                <option value=2>Regular</option>
+            </select>
+            <div *ngIf="submitted && f.type.errors" class="invalid-feedback">
+                <div *ngIf="f.type.errors.required">User Type required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <button [disabled]="loading" class="btn btn-primary">Edit</button>
+        </div>
+    </form>
+</div>

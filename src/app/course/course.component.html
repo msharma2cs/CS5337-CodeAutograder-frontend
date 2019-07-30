@@ -1,0 +1,73 @@
+<div class="container">
+    <h3>Create Course Section and Assign Instructor</h3>
+
+    <form [formGroup]="schoolCourseForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="class_no">Class</label>
+            <select formControlName="class_no" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.class_no.errors }">
+                <option *ngFor="let class of classes" value={{class.class_no}}>{{class.description}}</option> 
+            </select>
+            <div *ngIf="submitted && f.class_no.errors" class="invalid-feedback">
+                <div *ngIf="f.class_no.errors.required">Class is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+                <label for="class_no">Term</label>
+                <select formControlName="term_id" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.term_id.errors }">
+                    <option *ngFor="let term of terms" value={{term.id}}>{{term.description}}</option> 
+                </select>
+        </div>
+        <div class="form-group">
+            <label for="instructor_id">Instructor</label>
+            <select formControlName="instructor_id" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.instructor_id.errors }">
+                <option *ngFor="let user of users" value={{user.id}}>{{user.name}}</option> 
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="section">Section</label>
+            <input type="text" formControlName="section" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.section.errors }"/>
+            <div *ngIf="submitted && f.section.errors" class="invalid-feedback">
+                <div *ngIf="f.section.errors.required">Section is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+                <label for="room">Room</label>
+                <input type="text" formControlName="room" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.room.errors }"/>
+                <div *ngIf="submitted && f.room.errors" class="invalid-feedback">
+                    <div *ngIf="f.room.errors.required">Room is required</div>
+                </div>
+        </div>
+        <div class="form-group">
+                <label for="start_time">Start time</label>
+                <input type="time" formControlName="start_time" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.start_time.errors }"/>
+                <div *ngIf="submitted && f.start_time.errors" class="invalid-feedback">
+                    <div *ngIf="f.start_time.errors.required">Start time is required</div>
+                </div>
+        </div>
+        <div class="form-group">
+                <label for="end_time">End time</label>
+                <input type="time" formControlName="end_time" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.end_time.errors }"/>
+                <div *ngIf="submitted && f.end_time.errors" class="invalid-feedback">
+                    <div *ngIf="f.end_time.errors.required">End time is required</div>
+                </div>
+        </div>
+        <div class="form-group">
+                <label for="class_start_date">Class Start Date</label>
+                <input type="date" formControlName="class_start_date" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.class_start_date.errors }"/>
+                <div *ngIf="submitted && f.class_start_date.errors" class="invalid-feedback">
+                    <div *ngIf="f.class_start_date.errors.required">Class Start Date is required</div>
+                </div>
+        </div>
+        <div class="form-group">
+                <label for="class_end_date">Class End Date</label>
+                <input type="date" formControlName="class_end_date" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.class_end_date.errors }"/>
+                <div *ngIf="submitted && f.class_end_date.errors" class="invalid-feedback">
+                    <div *ngIf="f.class_end_date.errors.required">Class End Date is required</div>
+                </div>
+        </div>
+        <div class="form-group">
+            <button [disabled]="loading" class="btn btn-primary mr-3">Add</button>
+            <a [routerLink]="['/term']" class="btn btn-danger">Cancel</a>
+        </div>
+    </form>
+</div>

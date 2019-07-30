@@ -1,0 +1,24 @@
+<div class="container-full m-3">
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <!-- <th scope="col">Class</th>
+                <th scope="col">Instructor</th> -->
+                <th scope="col">Cin</th>
+                <th scope="col">Name</th>
+                <th scope="col">E-mail</th>
+                <th scope="col">User Type</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td>{{user.id}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.type}}</td>
+                <td><a (click)="deleteUser(user.id)" class="btn btn-danger">Delete</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

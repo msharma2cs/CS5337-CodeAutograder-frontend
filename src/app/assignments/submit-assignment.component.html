@@ -1,0 +1,28 @@
+<div class="container-full m-3">
+    <h3>Submit Assignment</h3>
+
+    <form [formGroup]="assignmentForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="language">Language</label>
+            <select type="text" formControlName="language" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.language.errors }">
+                <option value="python3">Python3</option>
+                <option value="java">java</option>
+                <option value="c">C</option>
+                <option value="cpp">C++</option>
+            </select>
+            <div *ngIf="submitted && f.language.errors" class="invalid-feedback">
+                <div *ngIf="f.language.errors.required">User Type required</div>
+            </div>
+        </div>
+        <div class="form-group">
+                <textarea rows="15" cols="75" formControlName="script" name="script" form="assignmentForm">Add your code here...</textarea>
+                <div *ngIf="submitted && f.language.errors" class="invalid-feedback">
+                    <div *ngIf="f.language.errors.required">User Type required</div>
+                </div>
+        </div>
+        <div class="form-group">
+            <button [disabled]="loading" class="btn btn-primary mr-3">Add</button>
+            <a [routerLink]="['/shome']" class="btn btn-danger">Cancel</a>
+        </div>
+    </form>
+</div>

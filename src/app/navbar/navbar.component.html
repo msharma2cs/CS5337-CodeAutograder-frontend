@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-5">
+  <div class="container">
+      <a class="navbar-brand mr-auto text-light" (click)="getHomePage()" routerLinkActive="router-link-active">CAGE</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain"></button>
+  </div>
+
+  <div class="collapse navbar-collapse mx-auto" id="navbarMain">
+      <div class="navbar-nav ml-auto">
+        <a class="nav-item nav-link" [routerLink]="['/home']">Users <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" [routerLink]="['/term']">Term</a>
+        <a class="nav-item nav-link" [routerLink]="['/course']">Course</a>
+        <!-- <a class="nav-item nav-link" [routerLink]="['/profile']">Profile ({{loggedInUserType}})</a> -->
+        <a class="nav-item nav-link" [routerLink]="['/profile']">Profile</a>
+        <a *ngIf='isUserLoggedIn' class="nav-item nav-link" [routerLink]="['/login']">Logout</a>
+        <!-- <a class="nav-item nav-link" href="#">Pricing</a>
+        <a class="nav-item nav-link disabled" href="#">Disabled</a> -->
+      </div>
+    </div>
+</nav>
